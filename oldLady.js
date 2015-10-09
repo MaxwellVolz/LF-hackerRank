@@ -12,29 +12,32 @@ var rentalCost = function(f){
 		aY = parseInt(a[2]),
 		eY = parseInt(e[2]);
 
-	console.log("aY: " + aY + " eY: " + eY);
-	if(aY <= eY){
+	if(aY > eY){
+		return 10000;
+	}
+	else{
 		var aM = parseInt(a[1]),
 			eM = parseInt(e[1]);
-
-		console.log("year np");
-		if(aM >= eM){
+		
+		if(aM > eM){
+			return ((aM - eM)*500);
+		}
+		else if(aM == eM){
 			var aD = parseInt(a[0]),
-				aM = parseInt(e[0]);
-				
-			console.log("month np")
-			if(aD <= aM){
-				console.log("day np");
-				return 0;
+				eD = parseInt(e[0]);
+		
+			if(aD > eD){
+				return ((aD - eD)*15);
 			}
 			else{
-				return ((aD - aM)*15);
-			}
+				return 0;
+			} 
 
-		}	
-		else{return ((eM - aM)*500)};	
+		}
+		else{
+			return 0;
+		}
 	}	
-	else{return 10000};
 }
 console.log("Head Librarian says " 
 	+ rentalCost("2 6 2016\n6 6 2015") 
@@ -46,5 +49,5 @@ console.log("Head Librarian says "
 	+ rentalCost("9 6 2015\n6 6 2015") 
 	+ "hackos, please");
 console.log("Head Librarian says " 
-	+ rentalCost("3 6 2015\n6 6 2015") 
+	+ rentalCost("2 7 1014\n1 1 1014") 
 	+ "hackos, please");
