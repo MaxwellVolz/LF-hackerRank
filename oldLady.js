@@ -15,7 +15,7 @@ var rentalCost = function(f){
 	if(aY > eY){
 		return 10000;
 	}
-	else{
+	else if(aY == eY){
 		var aM = parseInt(a[1]),
 			eM = parseInt(e[1]);
 		
@@ -38,7 +38,13 @@ var rentalCost = function(f){
 			return 0;
 		}
 	}	
+	else{
+		return 0;
+	}
 }
+console.log("Head Librarian says " 
+	+ rentalCost("2 7 1013\n1 1 1014") 
+	+ "hackos, please");
 console.log("Head Librarian says " 
 	+ rentalCost("2 6 2016\n6 6 2015") 
 	+ "hackos, please");
